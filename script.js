@@ -1,35 +1,35 @@
-// Theme toggle + simpan preferensi
-const key = "xemiaw-theme";
-const btn = document.getElementById("themeToggle");
-const root = document.documentElement;
+// // Theme toggle + simpan preferensi
+// const key = "xemiaw-theme";
+// const btn = document.getElementById("themeToggle");
+// const root = document.documentElement;
 
-function setTheme(mode){
-  if(mode === "light"){
-    root.style.setProperty("--card","#ffffffcc");
-    root.style.setProperty("--text","#1d1d1f");
-    root.style.setProperty("--muted","#4b5563");
-    root.style.setProperty("--btn","#ffffffcc");
-    root.style.setProperty("--btn-hover","#f3f4f6cc");
-    root.style.setProperty("--border","#00000022");
-  }else{
-    root.style.removeProperty("--card");
-    root.style.removeProperty("--text");
-    root.style.removeProperty("--muted");
-    root.style.removeProperty("--btn");
-    root.style.removeProperty("--btn-hover");
-    root.style.removeProperty("--border");
-  }
-  localStorage.setItem(key, mode);
-  btn.textContent = mode === "light" ? "☀️" : "🌙";
-}
+// function setTheme(mode){
+//   if(mode === "light"){
+//     root.style.setProperty("--card","#ffffffcc");
+//     root.style.setProperty("--text","#1d1d1f");
+//     root.style.setProperty("--muted","#4b5563");
+//     root.style.setProperty("--btn","#ffffffcc");
+//     root.style.setProperty("--btn-hover","#f3f4f6cc");
+//     root.style.setProperty("--border","#00000022");
+//   }else{
+//     root.style.removeProperty("--card");
+//     root.style.removeProperty("--text");
+//     root.style.removeProperty("--muted");
+//     root.style.removeProperty("--btn");
+//     root.style.removeProperty("--btn-hover");
+//     root.style.removeProperty("--border");
+//   }
+//   localStorage.setItem(key, mode);
+//   btn.textContent = mode === "light" ? "☀️" : "🌙";
+// }
 
-const saved = localStorage.getItem(key);
-if(saved){ setTheme(saved); } else { btn.textContent = "🌙"; }
+// const saved = localStorage.getItem(key);
+// if(saved){ setTheme(saved); } else { btn.textContent = "🌙"; }
 
-btn.addEventListener("click", ()=>{
-  const next = (localStorage.getItem(key) === "light") ? "dark" : "light";
-  setTheme(next);
-});
+// btn.addEventListener("click", ()=>{
+//   const next = (localStorage.getItem(key) === "light") ? "dark" : "light";
+//   setTheme(next);
+// });
 
 // Tahun di footer
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -43,3 +43,4 @@ for(let i=0; i<40; i++){
   s.style.animationDuration = (1.5 + Math.random() * 2) + "s";
   stars.appendChild(s);
 }
+
