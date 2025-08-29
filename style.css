@@ -1,0 +1,167 @@
+:root{
+  --bg-img: url("./asset/background.jpeg"); /* ganti ke path gambarmu */
+  --text:#f5f5f7; --muted:#b7bdc9;
+  --card:#0f0f18cc; --border:#ffffff22;
+  --btn:#191a27cc; --btn-hover:#22243acc; --ring:#8ddcff66;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
+  color:var(--text); display:flex; align-items:center; justify-content:center; padding:24px;
+  background:#000;
+}
+
+/* Background image + overlay */
+.bg{
+  position:fixed; inset:0;
+  background-image: var(--bg-img);
+  background-size: cover; background-position: center;
+  filter: saturate(110%) contrast(105%) brightness(80%);
+  z-index:-2;
+}
+.overlay{
+  position:fixed; inset:0;
+  background: radial-gradient(1200px 600px at 50% 10%, #00ffd41a, transparent 60%),
+              linear-gradient(180deg, #00000088, #000000dd 60%);
+  z-index:-1;
+}
+
+/* Card */
+.card{
+  width:min(560px,100%);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:26px 20px 18px;
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow: 0 20px 60px #0008;
+  animation: pop .5s ease both;
+}
+@keyframes pop{from{opacity:0; transform:translateY(8px) scale(.98)} to{opacity:1; transform:none}}
+
+.header{display:flex; gap: 4px; align-items:center; padding:4px 6px 16px}
+.avatar {
+  width: 120px;         /* ukuran bulat pp */
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;     /* biar bentuknya tetep bulat */
+  margin: 0 15px;  /* center + kasih jarak bawah */
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* auto crop biar proporsional */
+  display: block;
+}
+
+.title{margin:0; font-size:1.4rem; font-weight:800; letter-spacing:.3px}
+.title {
+  background: linear-gradient(90deg, #5ab96a, #8ddcff, #8db5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from { background-position: 0% }
+  to { background-position: 200% }
+}
+
+.subtitle{margin:2px 0 0; color:var(--muted); font-size:.95rem}
+
+.links{display:grid; gap:12px; margin:8px 0 6px}
+.btn{
+  display:flex; align-items:center; justify-content:center; gap: 5px;
+  width:100%; padding:14px 16px; border-radius:14px;
+  background:var(--btn); color:var(--text); text-decoration:none; font-weight:800;
+  border:1px solid var(--border);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .2s ease;
+  box-shadow: 0 8px 20px #0006;
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s, opacity 0.8s;
+}
+
+.btn:active::after {
+  transform: scale(3);
+  opacity: 1;
+  transition: 0s;
+}
+
+.btn:hover{ transform: translateY(-2px); background:var(--btn-hover); box-shadow: 0 16px 30px #0008, 0 0 0 4px var(--ring) }
+.btn:active{ transform: translateY(0) }
+
+.btn-ghost{
+  background:transparent; border-style:dashed; opacity:.9;
+}
+.btn-ghost:hover{ background:#ffffff10 }
+
+.ico{width:25px; height:25px; display:inline-block; position:relative, allign-item:center, justify-content:center}
+.ico::before{content:""; position:absolute; inset:0; background:currentColor; mask-size:contain; mask-repeat:no-repeat; mask-position:center}
+
+/* Minimal SVG masks via CSS (no lib) */
+.tiktok::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.5 3c.5 2.3 2.2 4 4.5 4.4V10c-1.8-.1-3.4-.8-4.5-2v6.3a5.25 5.25 0 1 1-5.3-5.2c.5 0 1 .1 1.5.2v2.5a2.75 2.75 0 1 0 2.3 2.7V3h1.5Z"/></svg>'); }
+.ig::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm6.25-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>'); }
+.yt::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 8.6c0-1.3-1-2.4-2.3-2.6C17.8 5.7 14 5.5 12 5.5s-5.8.2-7.7.5C3 6.2 2 7.3 2 8.6 1.8 10.2 1.7 11.8 1.7 13.4s.1 3.2.3 4.8c0 1.3 1 2.4 2.3 2.6 2 .3 5.8.5 7.7.5s5.8-.2 7.7-.5c1.3-.2 2.3-1.3 2.3-2.6.2-1.6.3-3.2.3-4.8s-.1-3.2-.3-4.8ZM10.2 15.8V9.1l6 3.4-6 3.3Z"/></svg>'); }
+.coffee::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 7h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V7Zm12 0h2a3 3 0 1 1 0 6h-2V7Z"/></svg>'); }
+.discord::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4a18 18 0 0 0-4.9-1.5l-.2.4a16 16 0 0 1 4 1.8A15.6 15.6 0 0 0 14.7 3l-.2.5a15.8 15.8 0 0 1-5 0L9.3 3A15.6 15.6 0 0 0 5 4.7 16 16 0 0 1 9 3l-.1-.4A18 18 0 0 0 4 4C1 8.7 0 13.2 0 17.6a18.7 18.7 0 0 0 6 2.9l.7-1.2a11 11 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 10.6 0l.4.3c-.5.3-1.1.6-1.7.8l.7 1.2A18.7 18.7 0 0 0 24 17.6C24 13.2 23 8.7 20 4Z"/></svg>'); }
+.lock::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1Zm2 0h6V7a3 3 0 1 0-6 0v3Z"/></svg>'); }
+
+.note{margin:10px 6px 0; text-align:center; color:var(--muted); font-size:.9rem}
+.footer{margin-top:12px; text-align:center; color:#9aa3b2; font-size:.85rem}
+
+/* Toggle button */
+.toggle{
+  position:fixed; top:16px; right:16px; z-index:5;
+  background:#0f0f18cc; color:#fff; border:1px solid var(--border);
+  border-radius:999px; padding:8px 10px; cursor:pointer;
+  box-shadow: 0 10px 24px #0008; backdrop-filter: blur(8px);
+}
+.toggle:hover{ box-shadow: 0 14px 30px #000a }
+
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+  opacity: 0.8;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.3); }
+}
+
+
+/* Responsif kecil */
+@media (max-width: 420px){
+  .avatar{width:60px;height:60px;font-size:30px}
+  .title{font-size:1.25rem}
+}
