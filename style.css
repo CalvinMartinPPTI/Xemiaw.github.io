@@ -159,9 +159,55 @@ body{
   to { opacity: 1; transform: scale(1.3); }
 }
 
+/* =================================== */
+/* Penyesuaian Responsif untuk Mobile */
+/* =================================== */
+@media (max-width: 768px) {
+  /* Ubah posisi fokus background di mobile.
+    Contoh: 'center top' akan memprioritaskan bagian atas gambar.
+    Contoh: '30% 50%' akan fokus sedikit ke kiri.
+    Sesuaikan nilai ini agar pas dengan gambar Anda.
+  */
+  .bg {
+    background-position: center top; 
+  }
 
+  /* Kurangi padding card agar tidak terlalu makan tempat di layar kecil */
+  .card {
+    padding: 24px 18px 16px;
+  }
+
+  /* Sesuaikan ukuran avatar dan layout header di mobile */
+  .header {
+    flex-direction: column; /* Ubah tata letak jadi atas-bawah */
+    padding-bottom: 12px;
+    gap: 8px;
+  }
+  .avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px; /* Posisikan di tengah dan beri jarak bawah */
+  }
+  .title-container {
+    text-align: center; /* Pusatkan teks judul dan subjudul */
+  }
+
+  /* Sedikit perkecil ukuran font judul */
+  .title {
+    font-size: 1.3rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Kurangi sedikit padding tombol agar lebih ramping */
+  .btn {
+    padding: 12px 14px;
+  }
+}
 /* Responsif kecil */
 @media (max-width: 420px){
   .avatar{width:60px;height:60px;font-size:30px}
   .title{font-size:1.25rem}
 }
+
