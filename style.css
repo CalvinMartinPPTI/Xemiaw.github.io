@@ -119,10 +119,18 @@ body{
 .btn-ghost{
   background:transparent; border-style:dashed; opacity:.9;
 }
-.btn-ghost:hover{ background:#ffffff10 }
-
-.ico{width:25px; height:25px; display:inline-block; position:relative, allign-item:center, justify-content:center}
-.ico::before{content:""; position:absolute; inset:0; background:currentColor; mask-size:contain; mask-repeat:no-repeat; mask-position:center}
+.btn-ghost:hover{ background:#ffffff10 }/* Update bagian .ico ini */
+.ico{
+  width:25px;
+  height:25px;
+  object-fit: contain; 
+}
+.btn img.ico {
+    width: 25px;
+    height: 25px;
+    object-fit: contain; /* Pastikan gambar tidak gepeng dan terlihat penuh */
+    flex-shrink: 0; /* Penting: agar tidak menyusut di flexbox */
+}
 
 /* Minimal SVG masks via CSS (no lib) */
 .tiktok::before{ mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.5 3c.5 2.3 2.2 4 4.5 4.4V10c-1.8-.1-3.4-.8-4.5-2v6.3a5.25 5.25 0 1 1-5.3-5.2c.5 0 1 .1 1.5.2v2.5a2.75 2.75 0 1 0 2.3 2.7V3h1.5Z"/></svg>'); }
@@ -213,5 +221,6 @@ body{
     padding: 12px 14px;
   }
 }
+
 
 
