@@ -41,22 +41,30 @@ body{
 }
 @keyframes pop{from{opacity:0; transform:translateY(8px) scale(.98)} to{opacity:1; transform:none}}
 
-.header{display:flex; gap: 4px; align-items:center; padding:4px 6px 16px}
+.header{
+    display:flex;
+    align-items:center; /* Pusatkan vertikal */
+    justify-content: center; /* Pusatkan horizontal isi header */
+    gap: 16px; /* Tambahkan jarak antar elemen di header */
+    padding:26px 20px 16px; /* Sesuaikan padding agar lebih pas */
+}
+
 .avatar {
-  width: 120px;         /* ukuran bulat pp */
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;     /* biar bentuknya tetep bulat */
-  margin: 0 15px;  /* center + kasih jarak bawah */
-  border: 2px solid rgba(255,255,255,0.2);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.2);
+    flex-shrink: 0; /* Penting! Mencegah avatar menyusut */
 }
 
 .avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* auto crop biar proporsional */
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ini yang memastikan gambar tidak gepeng */
+    display: block;
 }
+
 
 .title{margin:0; font-size:1.4rem; font-weight:800; letter-spacing:.3px}
 .title {
@@ -177,27 +185,24 @@ body{
     padding: 24px 18px 16px;
   }
 
-  /* Sesuaikan ukuran avatar dan layout header di mobile */
   .header {
-    flex-direction: column; /* Ubah tata letak jadi atas-bawah */
-    padding-bottom: 12px;
-    gap: 8px;
-  }
+        flex-direction: column; /* Avatar di atas, teks di bawah */
+        padding-bottom: 12px;
+        gap: 12px; /* Jarak antar avatar dan title-container */
+    }
   .avatar {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 10px; /* Posisikan di tengah dan beri jarak bawah */
+      width: 90px; /* Ukuran avatar lebih kecil di mobile */
+      height: 90px;
+      margin-bottom: 0; /* Hapus margin bawah jika ada */
   }
   .title-container {
-    text-align: center; /* Pusatkan teks judul dan subjudul */
-  }
-
-  /* Sedikit perkecil ukuran font judul */
+      align-items: center; /* Pusatkan teks di mobile */
+  } 
   .title {
-    font-size: 1.3rem;
+      font-size: 1.3rem; /* Sesuaikan ukuran font */
   }
   .subtitle {
-    font-size: 0.9rem;
+      font-size: 0.9rem; /* Sesuaikan ukuran font */
   }
 
   /* Kurangi sedikit padding tombol agar lebih ramping */
@@ -210,4 +215,5 @@ body{
   .avatar{width:60px;height:60px;font-size:30px}
   .title{font-size:1.25rem}
 }
+
 
