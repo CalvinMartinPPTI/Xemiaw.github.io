@@ -187,6 +187,8 @@ body{
 
   .header {
         flex-direction: column; /* Avatar di atas, teks di bawah */
+        align-items: center; /* Pusatkan secara vertikal */
+        justify-content: center; /* Pusatkan secara horizontal */
         padding-bottom: 12px;
         gap: 12px; /* Jarak antar avatar dan title-container */
     }
@@ -199,7 +201,8 @@ body{
       align-items: center; /* Pusatkan teks di mobile */
   } 
   .title {
-      font-size: 1.3rem; /* Sesuaikan ukuran font */
+    text-align: center;
+    font-size: 1.3rem; /* Sesuaikan ukuran font */
   }
   .subtitle {
       font-size: 0.9rem; /* Sesuaikan ukuran font */
@@ -210,5 +213,4 @@ body{
     padding: 12px 14px;
   }
 }
-
 
