@@ -44,3 +44,25 @@ for(let i=0; i<40; i++){
   stars.appendChild(s);
 }
 
+
+const notes = [
+    "“everyone have their ”",
+    "“stay kind, stay soft”",
+    "“trust the process”",
+    "“breathe, you’re doing fine”",
+    "“chill and grow”",
+    "“make today count”"
+  ];
+
+  const noteEl = document.getElementById("note");
+
+  function setRandomNote() {
+    const randomIndex = Math.floor(Math.random() * notes.length);
+    noteEl.textContent = notes[randomIndex];
+  }
+
+  // pertama kali load
+  setRandomNote();
+
+  // ganti tiap 5 detik (5000 ms)
+  setInterval(setRandomNote, 5000);
