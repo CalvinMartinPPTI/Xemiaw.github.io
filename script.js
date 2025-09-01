@@ -12,8 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     s.style.animationDuration = (1.5 + Math.random() * 2) + "s";
     stars.appendChild(s);
   }
+  
+document.addEventListener("DOMContentLoaded", () => {
+  const noteEl = document.getElementById("note");
 
-  // List motivasi
   const notes = [
     "“Keep going, you’re closer than you think.”",
     "“Small steps every day lead to big changes.”",
@@ -32,11 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
     "“Choose courage over comfort.”"
   ];
 
-  const noteEl = document.getElementById("note");
-
   function setRandomNote() {
-    const randomIndex = Math.floor(Math.random() * notes.length);
-    noteEl.textContent = notes[randomIndex];
+    // kasih efek fade out
+    noteEl.classList.add("fade");
+
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * notes.length);
+      noteEl.textContent = notes[randomIndex];
+
+      // fade in lagi
+      noteEl.classList.remove("fade");
+    }, 500); // harus sama dengan durasi transition di CSS
   }
 
   setRandomNote();
