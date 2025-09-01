@@ -46,13 +46,22 @@ for(let i=0; i<40; i++){
 
 
 const notes = [
-    "“everyone have their ”",
-    "“stay kind, stay soft”",
-    "“trust the process”",
-    "“breathe, you’re doing fine”",
-    "“chill and grow”",
-    "“make today count”"
-  ];
+  "“Keep going, you’re closer than you think.”",
+  "“Small steps every day lead to big changes.”",
+  "“Breathe. Relax. You’ve got this.”",
+  "“Focus on progress, not perfection.”",
+  "“Your future self will thank you.”",
+  "“Don’t be afraid to start again.”",
+  "“Consistency beats motivation.”",
+  "“Dare to dream, then do it.”",
+  "“Fall seven times, stand up eight.”",
+  "“Better an oops than a what if.”",
+  "“Believe in yourself a little more.”",
+  "“Your vibe attracts your tribe.”",
+  "“Do something today your future self will thank you for.”",
+  "“Great things take time—be patient.”",
+  "“Choose courage over comfort.”"
+];
 
   const noteEl = document.getElementById("note");
 
@@ -66,3 +75,4 @@ const notes = [
 
   // ganti tiap 5 detik (5000 ms)
   setInterval(setRandomNote, 5000);
+
